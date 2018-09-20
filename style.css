@@ -1,0 +1,60 @@
+  body {
+    background-color : #F6E4D2;
+  }
+  
+  #title-page{
+    font-family: Alegreya SC;
+    font-size: 90px;
+    text-align: center;
+  }
+  
+#mainpic{
+    border-radius: 15px;
+}
+
+.main-div{
+  width: 75%;
+  background-color: white;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-align: center;
+}
+
+#optext{
+  font-family: Great Vibes; 
+  font-size: 50px; 
+  color: #494130;
+}
+
+.main-button{
+  background-color: #494130 !important;
+  font-family: Raleway !important;
+}
+
+p{
+  font-size: 21px;
+  font-family: Raleway;
+}
+
+.parraf-content{
+  font-size: 24px;
+  font-family: Raleway;
+}
+
+hr { 
+    height: 1px;
+    background:#3e3628;
+    background-image: -webkit-linear-gradient(left,#e1dad0,#3e3628,#e1dad0);
+    background-image: -moz-linear-gradient(left,#e1dad0,#3e3628,#e1dad0);
+    background-image: -ms-linear-gradient(left,#e1dad0,#3e3628,#e1dad0);
+    background-image: -o-linear-gradient(left,#e1dad0,#3e3628,#e1dad0);
+} 
+
+h3 {
+  font-size: 40px;
+  font-family: Alegreya SC;
+  color: #494130
+}
