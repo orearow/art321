@@ -413,7 +413,40 @@ a fantasy realm.      <br /><br /> But the important thing is: is your setting f
       <h3>Characters</h3>
       <a href="http://www.w3.org/TR/2014/WD-css-masking-1-20140213/#clip-property">An example story for characters</a>
       <br /><br />
-      <code class="code--css">Your characters populate your story so make them interesting. <br /><br /> A perfect character is not interesting to read! <br /><br /> So remember, make sure your character has flaws. <br /><br /> Its also a good idea to add a background story and visual descripitons.
+      <code class="code--css">
+        <style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h2>Table Caption</h2>
+<p>To add a caption to a table, use the caption tag.</p>
+
+<table style="width:100%">
+  <caption>Monthly savings</caption>
+  <tr>
+    <th>Month</th>
+    <th>Savings</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+  <tr>
+    <td>February</td>
+    <td>$50</td>
+  </tr>
+</table>
+
+        
   </pre></code>
     </div>  
   </div>
@@ -424,36 +457,6 @@ a fantasy realm.      <br /><br /> But the important thing is: is your setting f
 <!-- ********* --> 
   
  <!-- ********* --> 
-  <div class="item item--svg-fill">
-    <div class="demo">
-      <svg width="200" height="200">
-        <text x="0" y="1em">Text</text>
-      </svg>  
-    </div>  
-    <div class="text">
-       <h3>SVG fill</h3>
-      <a href="http://www.w3.org/TR/SVG/painting.html#FillProperties">Specification</a> 
-      <br /><br />
-      <div class="comment">Not real mask, but looks like <code>-webkit-background-clip: text;</code> and has much better support.</div>
-      <br /><br />
-      <code class="code--svg"><pre>&lt;pattern id="pattern" patternUnits="userSpaceOnUse"
-             width="200" height="300" viewbox="0 0 200 300">
-  &lt;image xlink:href="YOUR IMAGE" width="200" height="300" />
-&lt;/pattern></pre></code>
-      <code class="code--css"><pre>text {
-  fill: url(#pattern);
-  }</pre></code>
-      <ul class="browsers">
-        <li class="browser chrome has-support"></li>
-        <li class="browser safari has-support"></li>
-        <li class="browser opera-13 has-support"></li>
-        <li class="browser firefox has-support"></li>
-        <li class="browser ie9 has-support"></li>
-        <li class="browser opera-12 has-support"></li>
-      </ul>
-    </div> 
-  </div> 
-</div>
 
 
 <!--  
