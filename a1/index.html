@@ -96,7 +96,7 @@ H1 {
   font-style: italic;
 }
 H1:after {
-  content: "Live demo";
+  content: "By: Oreoluwa Arowobusoye";
   position: absolute;
   margin-left: 5px;
   padding: 1px 5px;
@@ -384,7 +384,7 @@ a fantasy realm.      <br /><br /> But the important thing is: is your setting f
       <img src="https://rawlse.files.wordpress.com/2016/11/cyrus-example-hair.jpg?w=199&h=300" alt=""/>
     </div>
     <div class="text">
-      <h3>Setting</h3>
+      <h3>Characters</h3>
       <a href="http://www.w3.org/TR/2014/WD-css-masking-1-20140213/#clip-property">An example story for characters</a>
       <br /><br />
       <code class="code--css">Your characters populate your story so make them interesting. <br /><br /> A perfect character is not interesting to read! <br /><br /> So remember, make sure your character has flaws. <br /><br /> Its also a good idea to add a background story and visual descripitons.
@@ -392,170 +392,37 @@ a fantasy realm.      <br /><br /> But the important thing is: is your setting f
     </div>  
   </div>
  <!-- ********* -->   
- <div class="item item--svg-clip-path-svg">
+ <div class="item item--clip">
     <div class="demo">
-      <svg width="200" height="300">
-        <image xlink:href="https://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg" width="200" height="300" />
-      </svg>
-    </div>  
-    <div class="text">
-      <h3>SVG clip-path for SVG elements</h3>
-      <a href="http://www.w3.org/TR/SVG11/masking.html#EstablishingANewClippingPath">Specification</a>
-      <br /><br />
-      <code class="code--svg"><pre>&lt;clipPath id="clipping">
-  &lt;polygon points="98.4999978 153.75..."/>
-&lt;/clipPath></pre></code>
-      <code class="code--css"><pre>.item {
-  clip-path: url(#clipping);
-  }</pre></code>
-      <ul class="browsers">
-        <li class="browser chrome has-support"></li>
-        <li class="browser safari has-support"></li>
-        <li class="browser opera-13 has-support"></li>
-        <li class="browser firefox has-support"></li>
-        <li class="browser ie9 has-support"></li>
-        <li class="browser opera-12 has-support"></li>
-      </ul>
-    </div>  
-  </div>
- <!-- ********* -->   
-  <div class="item item--svg-clip-path-html">
-    <div class="demo">
-       <img src="https://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg" alt="" />
-    </div>  
-    <div class="text">
-      <h3>SVG clip-path for HTML elements</h3>
-      <a href="http://www.w3.org/TR/2014/WD-css-masking-1-20140213/#svg-clipping-paths">Specification</a>
-      <br /><br />
-      <code class="code--svg"><pre>&lt;clipPath id="clipping">
-  &lt;polygon points="98.4999978 153.75..."/>
-&lt;/clipPath></pre></code>
-      <code class="code--css"><pre>.item {
-  clip-path: url(#clipping);
-  }</pre></code>
-      <ul class="browsers">
-        <li class="browser chrome has-support"></li>
-        <li class="browser safari"></li>
-        <li class="browser opera-13 has-support"></li>
-        <li class="browser firefox has-support"></li>
-        <li class="browser ie9"></li>
-        <li class="browser opera-12"></li>
-      </ul>
-    </div> 
-  </div>
- 
- <!-- ********* -->   
-  <div class="item item--css-mask">
-    <div class="demo">
-       <img src="https://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg" alt="" />
-    </div>  
-    <div class="text">
-      <h3>CSS mask-image</h3>
-      <a href="http://www.w3.org/TR/2014/WD-css-masking-1-20140213/#the-mask-image">Specification</a>
-      <br /><br />
-      <code class="code--css"><pre>.item {
-  mask-image: url(YOUR.png), 
-                    linear-gradient(-45deg,
-                        rgba(0,0,0,1) 20%, rgba(0,0,0,0) 50%);
-  mask-repeat: space;
-  }</pre></code>
-      Mask image: <a href="https://img-fotki.yandex.ru/get/9492/5091629.9d/0_80e74_9f303e3d_M.png">PNG</a>
-      <ul class="browsers">
-        <li class="browser chrome has-support"></li>
-        <li class="browser safari has-support"></li>
-        <li class="browser opera-13 has-support"></li>
-        <li class="browser firefox has-support"></li>
-        <li class="browser ie9"></li>
-        <li class="browser opera-12"></li>
-      </ul>
-    </div> 
-  </div>
- <!-- ********* -->
-  <div class="item item--svg-mask-svg">
-    <div class="demo">
-      <svg width="200" height="300">
-      <image xlink:href="https://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg"
-      width="200" height="300"
-      /></svg>
-    </div>  
-    <div class="text">
-       <h3>SVG mask for SVG elements</h3>
-      <a href="http://www.w3.org/TR/SVG11/masking.html#Masking">Specification</a>
-      <br /><br />
-      <code class="code--svg"><pre>&lt;mask id="masking" maskUnits="objectBoundingBox" 
-  maskContentUnits="objectBoundingBox">
-  &lt;rect y="0" width="1" height="1" fill="url(#gradient)" />
-  &lt;circle cx=".5" cy=".5" r=".4" fill="gray" />
-  &lt;circle cx=".5" cy=".5" r=".3" fill="white" />
-  ...
-&lt;/mask></pre></code>
-      <code class="code--css"><pre>.item {
-  mask: url(#masking);
-  }</pre></code>
-      <ul class="browsers">
-        <li class="browser chrome has-support"></li>
-        <li class="browser safari has-support"></li>
-        <li class="browser opera-13 has-support"></li>
-        <li class="browser firefox has-support"></li>
-        <li class="browser ie9 has-support"></li>
-        <li class="browser opera-12 has-support"></li>
-      </ul>
-    </div> 
-  </div> 
-<!-- ********* --> 
-  <div class="item item--svg-mask-html">
-    <div class="demo">
-      <img src="https://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg" alt="" />
-    </div>  
-    <div class="text">
-      <h3>SVG mask for HTML elements</h3>
-      <a href="http://www.w3.org/TR/2014/WD-css-masking-1-20140213/#the-mask-image">Specification</a>
-      <br /><br />
-      <code class="code--svg"><pre>&lt;mask id="masking" maskUnits="objectBoundingBox" 
-  maskContentUnits="objectBoundingBox">
-  &lt;rect y="0" width="1" height="1" fill="url(#gradient)" />
-  &lt;circle cx=".5" cy=".5" r=".4" fill="gray" />
-  &lt;circle cx=".5" cy=".5" r=".3" fill="white" />
-  ...
-&lt;/mask></pre></code>
-      <code class="code--css"><pre>.item {
-  mask: url(#masking);
-  }</pre></code>
-      <ul class="browsers">
-        <li class="browser chrome"></li>
-        <li class="browser safari"></li>
-        <li class="browser opera-13"></li>
-        <li class="browser firefox has-support"></li>
-        <li class="browser ie9"></li>
-        <li class="browser opera-12"></li>
-      </ul>
+      <img src="https://rawlse.files.wordpress.com/2016/11/cyrus-example-hair.jpg?w=199&h=300" alt=""/>
     </div>
-  </div>
-
- <!-- ********* --> 
-  <div class="item item--css-background-clip">
-    <div class="demo">
-      Text
-    </div>  
     <div class="text">
-       <h3>background-clip</h3>
-      <a href="https://www.webkit.org/blog/164/background-clip-text/">Documentation</a>
+      <h3>Characters</h3>
+      <a href="http://www.w3.org/TR/2014/WD-css-masking-1-20140213/#clip-property">An example story for characters</a>
       <br /><br />
-      <code class="code--css"><pre>.item {
-  background: url(YOUR IMAGE) no-repeat;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  }</pre></code>
-      <ul class="browsers">
-        <li class="browser chrome has-support"></li>
-        <li class="browser safari has-support"></li>
-        <li class="browser opera-13 has-support"></li>
-        <li class="browser firefox has-support"></li>
-        <li class="browser ie9"></li>
-        <li class="browser opera-12"></li>
-      </ul>
-    </div> 
+      <code class="code--css">Your characters populate your story so make them interesting. <br /><br /> A perfect character is not interesting to read! <br /><br /> So remember, make sure your character has flaws. <br /><br /> Its also a good idea to add a background story and visual descripitons.
+  </pre></code>
+    </div>  
   </div>
+ <!-- ********* -->   
+<div class="item item--clip">
+    <div class="demo">
+      <img src="https://rawlse.files.wordpress.com/2016/11/cyrus-example-hair.jpg?w=199&h=300" alt=""/>
+    </div>
+    <div class="text">
+      <h3>Characters</h3>
+      <a href="http://www.w3.org/TR/2014/WD-css-masking-1-20140213/#clip-property">An example story for characters</a>
+      <br /><br />
+      <code class="code--css">Your characters populate your story so make them interesting. <br /><br /> A perfect character is not interesting to read! <br /><br /> So remember, make sure your character has flaws. <br /><br /> Its also a good idea to add a background story and visual descripitons.
+  </pre></code>
+    </div>  
+  </div>
+ <!-- ********* -->   
+  
+ <!-- ********* -->
+  
+<!-- ********* --> 
+  
  <!-- ********* --> 
   <div class="item item--svg-fill">
     <div class="demo">
