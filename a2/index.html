@@ -9,6 +9,10 @@
 
   
       <style>
+        
+       #container { overflow: hidden; }
+#floated-imgs { float: right; }
+#floated-imgs img {display: block; }
       /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
       b {
   font-weight: bold;
@@ -326,7 +330,9 @@ code:before {
   <h1>Assignment 2: Modify Images</h1>
   <div>
       <img src="box_threshold_1.gif" alt=""/>
-    
+<div id="container">
+       <div id="floated-imgs">
+ 
          <img src="cat_threshold_98.png" alt=""/>
              <img src="writing_threshold_105.jpg" alt=""/>
              <img src="circle_one_done.png" alt=""/>
@@ -334,7 +340,9 @@ code:before {
 
   </div>
   </div>
- <!-- ********* -->   
+  </div>
+
+  <!-- ********* -->   
   
  <!-- ********* -->
   
