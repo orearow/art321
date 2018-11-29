@@ -1,0 +1,771 @@
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+
+<style type="text/css">
+
+
+.title{
+  text-align: center;
+  font-family: 'Oswald';
+  font-weight: 100;
+  font-size: 3.75rem;
+  letter-spacing:5px;
+  background: linear-gradient(rgba(255,0,0,0), #444,rgba(255,0,0,0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0;
+  @media screen and (min-width:37.5em){
+    font-size: 4.75rem;
+  }
+}
+
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  font-family:arial,sans-serif;
+  font-size:100%;
+  margin:1em;
+  background:#666;
+  color:#fff;
+}
+h2,p{
+  font-size:100%;
+  font-weight:normal;
+}
+ul,li{
+  list-style:none;
+}
+ul{
+  overflow:hidden;
+  padding:3em;
+}
+ul li a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+  -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
+  -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  -moz-transition:-moz-transform .15s linear;
+  -o-transition:-o-transform .15s linear;
+  -webkit-transition:-webkit-transform .15s linear;
+}
+ul li{
+  margin:1em;
+  float:left;
+}
+ul li h2{
+  font-size:140%;
+  font-weight:bold;
+  padding-bottom:10px;
+}
+ul li p{
+  font-family:"Reenie Beanie",arial,sans-serif;
+  font-size:180%;
+}
+ul li a{
+  -webkit-transform: rotate(-6deg);
+  -o-transform: rotate(-6deg);
+  -moz-transform:rotate(-6deg);
+}
+ul li:nth-child(even) a{
+  -o-transform:rotate(4deg);
+  -webkit-transform:rotate(4deg);
+  -moz-transform:rotate(4deg);
+  position:relative;
+  top:5px;
+  background:#cfc;
+}
+ul li:nth-child(3n) a{
+  -o-transform:rotate(-3deg);
+  -webkit-transform:rotate(-3deg);
+  -moz-transform:rotate(-3deg);
+  position:relative;
+  top:-5px;
+  background:#ccf;
+}
+ul li:nth-child(5n) a{
+  -o-transform:rotate(5deg);
+  -webkit-transform:rotate(5deg);
+  -moz-transform:rotate(5deg);
+  position:relative;
+  top:-10px;
+}
+ul li a:hover,ul li a:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+
+img:hover,ul li a:focus{
+  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -o-transform: scale(1.25);
+  position:relative;
+  z-index:5;
+}
+
+
+ol{text-align:center;}
+ol li{display:inline;padding-right:1em;}
+ol li a{color:#fff;}
+
+
+
+
+
+
+body{
+  margin:0;
+  padding:0;
+  font-family:"arial",heletica,sans-serif;
+  font-size:12px;
+    background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+  -webkit-animation: 10s linear 0s normal none infinite animate;
+  -moz-animation: 10s linear 0s normal none infinite animate;
+  -ms-animation: 10s linear 0s normal none infinite animate;
+  -o-animation: 10s linear 0s normal none infinite animate;
+  animation: 10s linear 0s normal none infinite animate;
+ 
+}
+ 
+@-webkit-keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+ 
+@-moz-keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+ 
+@-ms-keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+ 
+@-o-keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+ 
+@keyframes animate {
+  from {background-position:0 0;}
+  to {background-position: 500px 0;}
+}
+h2 {
+    text-decoration: underline;
+    font-weight: bold;
+    color: violet;
+    font-size: 50px;
+    font-style: italic;
+}
+
+p {
+    overflow-wrap: break-word;
+    white-space:normal;
+}
+
+
+.tooltip {
+    position: relative;
+    overflow-wrap: break-word;
+
+/*    display: inline-block;
+*//*    border-bottom: 1px dotted black;
+*/}
+
+.tooltip .tooltiptext {
+    overflow-wrap: break-word;
+    visibility: hidden;
+    width: 400px;
+    height: max-content;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    font-size: 12px;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+li p {
+    margin: 5px;
+    padding: 5px;
+}
+
+    #outter {
+        position: relative;
+        width: 50000px;
+        height: 200px;
+/*        overflow: scroll;
+*/    }
+    #inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5000px;
+        height: 200px;
+    }
+    #inner .item {
+        float: left;
+        display: inline;
+    }    
+
+    .column {
+          border-right: 8px solid pink;
+
+      display: inline-block;
+    white-space: nowrap;
+
+    width: 300px
+
+
+ background: rgba(234,110,72,1);
+    background: -moz-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(234,110,72,1)), color-stop(100%, rgba(188,26,99,1)));
+    background: -webkit-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+    background: linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea6e48', endColorstr='#bc1a63', GradientType=1 );
+
+
+    float: left;
+/*    width: 50%;
+*/    padding: 10px;
+
+     /* Should be removed. Only for demonstration */
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Roboto');
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
+.heading-primary {
+  color: deeppink;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+  animation-iteration-count: 5;
+}
+
+.heading-primary-sub {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  
+  animation-name: moveInRight;
+  animation-duration: 3s;
+  animation-iteration-count: 5;
+  animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
+
+
+  /*PINK*/
+  .b-pink, .b-pink:before {
+    background: rgba(231,72,234,1);
+    background: -moz-linear-gradient(45deg, rgba(231,72,234,1) 0%, rgba(75,26,188,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(231,72,234,1)), color-stop(100%, rgba(75,26,188,1)));
+    background: -webkit-linear-gradient(45deg, rgba(231,72,234,1) 0%, rgba(75,26,188,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(231,72,234,1) 0%, rgba(75,26,188,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(231,72,234,1) 0%, rgba(75,26,188,1) 100%);
+    background: linear-gradient(45deg, rgba(231,72,234,1) 0%, rgba(75,26,188,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e748ea', endColorstr='#4b1abc', GradientType=1 );
+  }
+ 
+/*END GRADIENTS*/
+/*BASE BUTTON*/
+.button {
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  text-decoration: none;
+  padding: .5em;
+  margin: .5em;
+  font-size: 2em;
+  font-weight: bold;
+  transition: all .5s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.button:hover {
+  text-shadow: 0px 0px 0px rgba(255, 255, 255, .75);
+}
+.button:hover:after {
+  left: 100%;
+  top: 100%;
+  bottom: 100%;
+  right: 100%;
+}
+.button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 5px;
+  transition: all .5s;
+}
+.button:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  right: 2px;
+  z-index: -1;
+  border-radius: 5px;
+  transition: all .5s;
+}
+.button2 {
+  display: inline-block;
+  font-size: 2em;
+  margin: .5em;
+  padding: .5em;
+  border-radius: 5px;
+  transition: all .5s;
+  filter: hue-rotate(0deg);
+  color: #FFF;
+  text-decoration: none;
+}
+/*END BASE BUTTON*/
+/*ROTATE*/
+.rot-360-noscoop:hover {
+  filter: hue-rotate(360deg);
+  transform: rotate(360deg);
+}
+.rot-135:hover {
+  filter: hue-rotate(135deg);
+}
+.rot-90:hover {
+  filter: hue-rotate(90deg);
+}
+/*END ROTATE*/
+
+
+
+
+</style>
+
+
+
+
+<body>
+
+  <h1 class="title">Explore By periodical</h1>
+
+ <ul>
+    <li >
+    <img  onclick="anthology('cinderella')" src="pallMall.jpg">
+    </li>
+
+    <li href="javascript:anthology(cinderella)">
+    <img src="pallMall.jpg">
+    </li>
+    
+
+    <li href="javascript:poo(42482)">
+    <img src="pallMall.jpg">
+    </li>
+
+    <li href="javascript:poo(42482)">
+    <img src="pallMall.jpg">
+    </li>
+        <li href="javascript:poo(42482)">
+    <img src="pallMall.jpg">
+    </li>
+        <li href="javascript:poo(42482)">
+    <img src="pallMall.jpg">
+    </li>
+        <li href="javascript:poo(42482)">
+    <img src="pallMall.jpg">
+    </li>
+        <li href="javascript:poo(42482)">
+    <img src="pallMall.jpg">
+    </li>
+
+  </ul>
+
+
+
+
+
+
+
+</body>
+
+
+ <div id="outter">
+    <div id="inner">
+        <script >
+
+function poo(param) {
+  console.error(param)
+  anthology(param)
+}
+
+function anthology(e) {
+  if ((e.value == 'cinderella' || e === 'cinderella' )) {
+   // console.error("hi hello")
+  document.getElementById("inner").innerHTML = "" 
+  //'19822', '20122', '21282', '21492', '23452', '23452Q', '23532', '23592'
+  //story_array = ['16862', '16992', '19212', '19452', '19742']
+ // for (var element in story_array) {
+  //  console.error(story_array[element])
+    fileName = element
+    //  var story = "?story=" + story_array[element]
+    //  var value = e.value || e
+      //var tablename = "&tablename=" + value +"_keywords"
+
+      prelim_function("random.csv")
+
+
+  }
+
+
+
+  
+  if (e.value === '42582') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['16932', '17002', '17902', '18112', '18222', '18832', '18972', '18972_52276', '19312', '19632', '19782', '19912', '21012', '21022', '21212', '21252', '21762', '22232', '22352', '22372', '22732', '52265', '52266', '52267', '52268', '52269', '52270', '52271', '52272', '52273', '52274', '52275', '52277', '52278', '52279', '52280']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+
+  }
+
+  if (e.value === '42642') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['17012', '17112', '17872', '18302', '18309', '18382', '19532', '20582', '20752', '20922', '21052', '21862', '22152', '22472', '22772', '23392', '29022', '29033']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+
+  }
+
+  if (e.value === '42702') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['17072', '17082', '17222', '18582', '19032', '19082', '19142', '19692', '19942', '21652', '21712', '21792', '21972', '22122', '22642', '22762', '22802', '22872', '22872Q', '23172']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+
+  }
+  if (e.value === '43302') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['19172', '51506', '51508', '51510', '51513', '51514', '51515', '51518', '51519', '51521', '51522', '51523', '51528', '51530', '51532', '51537', '51542', '51543', '51548', '51553', '51555', '51558', '51560', '51563', '51566', '51568', '51569', '51571', '51573', '51576', '51576Q', '51579']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+
+  }
+  if (e.value === '43442') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['20442', '43442', '48102', '51582', '51584', '51587', '51589', '51594', '51595', '51602', '51603', '51605', '51612', '51613', '51617', '51618Q', '51625', '51630', '51636Q', '51640', '51640_fragmentQ', '51642', '51644', '51649', '51654', '51659', '51661', '51924', '51938', '51950fragmentQ', 'b0be0214.ttxt51659']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  }
+
+
+  if (e.value === '43862') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['(2)', '102', '122', '17192', '17632', '17642', '18022', '18162', '18892', '19932', '20332', '21832', '22062', '22742', '22912', '23582', '43982', '44002', '44032', '44052', '44082', '44112', '44122', '72']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  }
+
+  if (e.value === '44422') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['17202', '17452', '17512', '17862', '18202', '18602', '19232', '19612', '20202', '20592', '22302', '22832', '22852', '23032', '23072']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  }
+  if (e.value === '44522') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['45862', '45872', '45882', '45892', '45902', '45902_fragmentQ', '45912', '45932', '45942', '47122', '47152', '47162', '47182', '47192', '47202', '47212', '47222', '47232', '47242', '47252', '47262', '47272', '47282', '47292', '47302', '47312', '47322', '47332', '47342', '47352', '47362', '47372', '47382', '47402', '47412', '47422', '47432', '47442', '47452', '47462', '747452', 'b0je0138.tx']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  }
+  if (e.value === '44532') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['47482', '47492', '47502', '47512', '47522', '47532', '47542', '47552', '47562', '47572', '47582', '47592', '47602', '47612', '47622', '47632', '47642', '47652', '47662', '47682', '47692', '47702', '47712', '47722', '47732', '47742', '47752_47742', '47762', '47772', '47782', '47792', '47802', '47812', '47822', '47832', '47842', '47852', '47862', '47872', '47882', '47892', '47902', '47912', '47922', 'b0ke0115.tx747792', 'unknown']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)    }
+  }
+
+  if (e.value === '51093') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['51094', '51103', '51154', '51162', '51164', '51170', '51174', '51176', '51180', '51190', '51194', '51198', '51202', '51208', '51212', '51214', '51218', '51220', '51226', '51228', '51230', '51232', '51236', '51240', '51242', '51246', '51250_51260', '51252', '51254', '51256', '51262', '51266', '51270', '51272', '51275', '51277', '51278_51279', '51280', '51281', '51282', '51284', '51286', '51290', '51291', '51292', '51295', '51296', 'b0te0162.tx51290']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  }  
+
+  if (e.value === '51363') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['1.', '5108', '5109', '51364', '51365', '51366', '51367', '51368', '51369', '51370', '51371', '51372', '51373', '51374', '51375', '51376', '51377', '51378', '51379', '51380', '51381', '51382', '51383', '51384', '51385', '51386', '51387', '51388', '51389', '51390', '51391', '51392', '51393', '51394', '51395', '51396', '51397', '51398', '51399', '51400', '51401', '51402', '51403', '51404', '51405', '51406', '51407']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  } 
+
+  if (e.value === '51411') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['51410', '51416', '51417', '51420', '51421', '51422', '51424', '51427', '51429', '51432', '51435', '51439', '51442', '51443', '51447', '51449', '51452', '51453']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  } 
+
+  if (e.value === '51717') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['51718', '51720', '51720Q', '51721', '51726', '51727', '51728', '51730', '51731', '51734', '51737', '51740', '51741', '51746', '51747', '51748', '51751', '51754', '51755', '51759', '51762', '51763', '51763Q', '51767', '51767Q', '51768', '52295']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  } 
+
+  if (e.value === '51782') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['41819', '51783', '51784', '51786', '51788', '51791', '51793', '51795', '51797', '51798', '51799', '51801', '51802', '51803', '51806', '51807', '51808', '51810_51811_51812Q', '51814', '51815', '51817', '51818', '51819', '51819Q', '51821', '51822']
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  } 
+
+  if (e.value === '51878') {
+    document.getElementById("inner").innerHTML = "" 
+    story_array = ['51879', '51880', '51883', '51885', '51886', '51887', '51890', '51892', '51895', '51895Q', '51897', '51900', '51901', '51903', '51905', '51906', '51908', '51909', '51910', '51912', '51913', '51915', '51915Q', '51916', '51916Q', '51917', '51917Q', '52258', '52259'] 
+    for (var element in story_array) {
+      var story = "?story=" + story_array[element]
+      var tablename = "&tablename=" + e.value+"_keywords"
+      prelim_function("fetchData.php" +story+tablename, element)
+    }
+  }   
+}
+
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
+
+
+
+
+
+function prelim_function(myData, filename){
+  d3.csv(myData, createElements)
+
+  function createElements(myData) {
+
+    var div = d3.select("#inner")
+      .append("div")
+      .attr("class", "column")
+
+      // .insert("br", "p + *")
+      // .style("background-color", "#aaa");
+
+
+    var booksExtent = d3.extent(myData, function(d) {
+      return parseInt(d.score)
+    });
+
+    var scale = d3.scaleLinear()
+      // .range([7, 30]) //smallest  to biggest text font size 
+      // .domain([1, 30]); // 2nd number smallest orrucence biggest occurence 
+      .range([5, 100]) //smallest  to biggest text font size 
+      .domain([1, 60]); 
+      // .range([9, 20])
+      // .domain([12, 85]);
+      div
+        .append("h2")
+        .data(myData)
+        .text(function(d){
+          console.log(d)
+          return d.title;
+        })
+ 
+    div.selectAll(null)
+      .data(myData)
+      .enter()
+      .append("p")
+      .attr("class", "tooltip")
+      .text(function(d) {
+        return d.word;
+      })
+      
+      .style("font-size", function(d) {
+        var value = scale(parseInt(d.score))
+        if (value > 50) {
+        value = 50 }
+        return value  + "pt";
+      })
+      .append('p')
+      .attr("class", "tooltiptext")
+      // .html("this is cool <br> wow "  )
+
+      .html(function(d) {
+         d.sentence = (d.sentence).toLowerCase()
+        str = (d.sentence).replace(/(~newline~)/g, '<br>');
+        // all_upper_word = d.word.toUpperCase()
+        str = (str).replaceAll((d.word), "<font color=\"red\">" + d.word + "</font>");
+        // str = (str).replace((d.word).toUpperCase(), " <font color=\"red\">" + d.word.toUpperCase() + "</font>");
+
+
+        return str;
+      })
+
+
+
+  }
+}
+        </script>
