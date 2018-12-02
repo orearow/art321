@@ -580,13 +580,11 @@ li p {
     <div id="inner">
         <script >
 
-function poo(param) {
-  console.error(param)
-  anthology(param)
-}
+
 
 function anthology(e) {
-   var story_book_name = e.value || e
+  console.error(e)
+   var story_book_name = e
    prelim_function("/csv/" +story_book_name+".csv")
 
 
