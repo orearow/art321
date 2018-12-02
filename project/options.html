@@ -471,34 +471,99 @@ li p {
   <h1 class="title">Explore By periodical</h1>
 
  <ul>
-    <li >
-    <img  onclick="anthology('cinderella')" src="cinderella.jpg">
-    </li>
 
-    <li href="javascript:anthology(cinderella)">
-    <img src="red_riding_hood.jpg" style="width:220px;height:275px;>
+
+    <li >
+    <img onclick="anthology('red_riding_hood')" src="covers/red_riding_hood.jpg" style="width:220px;height:275px;>
     </li>
     
 
     <li href="javascript:poo(42482)">
-    <img src="brave_tin_soldier.jpg" style="width:220px;height:275px;>
+    <img  onclick="anthology('brave_tin_soldier')" src="covers/brave_tin_soldier.jpg" style="width:220px;height:275px;>
     </li>
 
     <li href="javascript:poo(42482)">
-    <img src="goat_with_three_kids.jpg" style="width:220px;height:275px;>
+    <img  onclick="anthology('goat_with_three_kids')" src="covers/goat_with_three_kids.jpg" style="width:220px;height:275px;>
     </li>
         <li href="javascript:poo(42482)">
-    <img src="the_snow_queen.jpg" style="width:220px;height:275px;>
+    <img onclick="anthology('the_snow_queen')" src="covers/the_snow_queen.jpg" style="width:220px;height:275px;>
     </li>
         <li href="javascript:poo(42482)">
-    <img src="the_snow_white.jpg" style="width:220px;height:275px;>
+    <img onclick="anthology('snow_white')" src="covers/snow_white.jpg" style="width:220px;height:275px;>
     </li>
         <li href="javascript:poo(42482)">
-    <img src="the_little_mermaid.jpg" style="width:220px;height:275px;>
+    <img onclick="anthology('the_little_mermaid')" src="covers/the_little_mermaid.jpg" style="width:220px;height:275px;>
     </li>
         <li href="javascript:poo(42482)">
-    <img src="pallMall.jpg">
+    <img onclick="anthology('puss_in_boots')" src="covers/puss_in_boots.jpg" style="width:220px;height:275px;>
     </li>
+
+        <li href="javascript:poo(42482)">
+    <img onclick="anthology('jack_beanstalk')" src="covers/jack_beanstalk.jpg" style="width:220px;height:275px;>
+    </li>
+
+        <li href="javascript:poo(42482)">
+    <img onclick="anthology('snow_rose_red')" src="covers/snow_rose_red.jpg" style="width:220px;height:275px;>
+    </li>
+
+
+        <li href="javascript:poo(42482)">
+    <img   onclick="anthology('rapunzel')" src="covers/rapunzel.jpg" style="width:220px;height:275px;>
+    </li>
+
+        <li href="javascript:poo(42482)">
+    <img onclick="anthology('three_little_pigs')" src="covers/three_little_pigs.jpg" style="width:220px;height:275px;>
+    </li>
+
+        <li href="javascript:poo(42482)">
+    <img onclick="anthology('ugly_duckling')" src="covers/ugly_duckling.jpg" style="width:220px;height:275px;>
+    </li>
+
+        <li href="javascript:poo(42482)">
+    <img onclick="anthology('rumplestiltskin')" src="covers/rumplestiltskin.jpg" style="width:220px;height:275px;>
+    </li>
+
+      <li href="javascript:poo(42482)">
+    <img onclick="anthology('goldilocks')" src="covers/goldilocks.jpg" style="width:220px;height:275px;>
+    </li>
+
+      <li href="javascript:poo(42482)">
+    <img onclick="anthology('sleepingBeauty')" src="covers/sleepingBeauty.jpg" style="width:220px;height:275px;>
+    </li>    
+
+      <li href="javascript:poo(42482)">
+    <img  onclick="anthology('mother_frost')" src="covers/mother_frost.jpg" style="width:220px;height:275px;>
+    </li>    
+
+
+      <li href="javascript:poo(42482)">
+    <img  onclick="anthology('frog_prince')" src="covers/frog_prince.jpg" style="width:220px;height:275px;>
+    </li>    
+
+      <li href="javascript:poo(42482)">
+    <img onclick="anthology('fisherman_wife')" src="covers/fisherman_wife.jpg" style="width:220px;height:275px;>
+    </li>    
+
+
+      <li href="javascript:poo(42482)">
+    <img  onclick="anthology('new_clothes')" src="covers/new_clothes.jpg" style="width:220px;height:275px;>
+    </li>    
+
+
+
+      <li href="javascript:poo(42482)">
+    <img  onclick="anthology('little_match_girl')" src="covers/little_match_girl.jpg" style="width:220px;height:275px;>
+    </li>    
+
+
+      <li href="javascript:poo(42482)">
+    <img onclick="anthology('golden_goose')"  src="covers/golden_goose.jpg" style="width:220px;height:275px;>
+    </li>    
+
+
+      <li href="javascript:poo(42482)">
+    <img onclick="anthology('cinderella')" src="covers/cinderella.jpg" style="width:220px;height:275px;>
+    </li> 
 
   </ul>
 
@@ -521,175 +586,10 @@ function poo(param) {
 }
 
 function anthology(e) {
-  if ((e.value == 'cinderella' || e === 'cinderella' )) {
-   // console.error("hi hello")
-  document.getElementById("inner").innerHTML = "" 
-  //'19822', '20122', '21282', '21492', '23452', '23452Q', '23532', '23592'
-  //story_array = ['16862', '16992', '19212', '19452', '19742']
- // for (var element in story_array) {
-  //  console.error(story_array[element])
-    fileName = element
-    //  var story = "?story=" + story_array[element]
-    //  var value = e.value || e
-      //var tablename = "&tablename=" + value +"_keywords"
-
-      prelim_function("random.csv")
+   var story_book_name = e.value || e
+   prelim_function("/csv/" +story_book_name+".csv")
 
 
-  }
-
-
-
-  
-  if (e.value === '42582') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['16932', '17002', '17902', '18112', '18222', '18832', '18972', '18972_52276', '19312', '19632', '19782', '19912', '21012', '21022', '21212', '21252', '21762', '22232', '22352', '22372', '22732', '52265', '52266', '52267', '52268', '52269', '52270', '52271', '52272', '52273', '52274', '52275', '52277', '52278', '52279', '52280']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-
-  }
-
-  if (e.value === '42642') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['17012', '17112', '17872', '18302', '18309', '18382', '19532', '20582', '20752', '20922', '21052', '21862', '22152', '22472', '22772', '23392', '29022', '29033']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-
-  }
-
-  if (e.value === '42702') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['17072', '17082', '17222', '18582', '19032', '19082', '19142', '19692', '19942', '21652', '21712', '21792', '21972', '22122', '22642', '22762', '22802', '22872', '22872Q', '23172']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-
-  }
-  if (e.value === '43302') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['19172', '51506', '51508', '51510', '51513', '51514', '51515', '51518', '51519', '51521', '51522', '51523', '51528', '51530', '51532', '51537', '51542', '51543', '51548', '51553', '51555', '51558', '51560', '51563', '51566', '51568', '51569', '51571', '51573', '51576', '51576Q', '51579']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-
-  }
-  if (e.value === '43442') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['20442', '43442', '48102', '51582', '51584', '51587', '51589', '51594', '51595', '51602', '51603', '51605', '51612', '51613', '51617', '51618Q', '51625', '51630', '51636Q', '51640', '51640_fragmentQ', '51642', '51644', '51649', '51654', '51659', '51661', '51924', '51938', '51950fragmentQ', 'b0be0214.ttxt51659']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  }
-
-
-  if (e.value === '43862') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['(2)', '102', '122', '17192', '17632', '17642', '18022', '18162', '18892', '19932', '20332', '21832', '22062', '22742', '22912', '23582', '43982', '44002', '44032', '44052', '44082', '44112', '44122', '72']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  }
-
-  if (e.value === '44422') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['17202', '17452', '17512', '17862', '18202', '18602', '19232', '19612', '20202', '20592', '22302', '22832', '22852', '23032', '23072']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  }
-  if (e.value === '44522') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['45862', '45872', '45882', '45892', '45902', '45902_fragmentQ', '45912', '45932', '45942', '47122', '47152', '47162', '47182', '47192', '47202', '47212', '47222', '47232', '47242', '47252', '47262', '47272', '47282', '47292', '47302', '47312', '47322', '47332', '47342', '47352', '47362', '47372', '47382', '47402', '47412', '47422', '47432', '47442', '47452', '47462', '747452', 'b0je0138.tx']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  }
-  if (e.value === '44532') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['47482', '47492', '47502', '47512', '47522', '47532', '47542', '47552', '47562', '47572', '47582', '47592', '47602', '47612', '47622', '47632', '47642', '47652', '47662', '47682', '47692', '47702', '47712', '47722', '47732', '47742', '47752_47742', '47762', '47772', '47782', '47792', '47802', '47812', '47822', '47832', '47842', '47852', '47862', '47872', '47882', '47892', '47902', '47912', '47922', 'b0ke0115.tx747792', 'unknown']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)    }
-  }
-
-  if (e.value === '51093') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['51094', '51103', '51154', '51162', '51164', '51170', '51174', '51176', '51180', '51190', '51194', '51198', '51202', '51208', '51212', '51214', '51218', '51220', '51226', '51228', '51230', '51232', '51236', '51240', '51242', '51246', '51250_51260', '51252', '51254', '51256', '51262', '51266', '51270', '51272', '51275', '51277', '51278_51279', '51280', '51281', '51282', '51284', '51286', '51290', '51291', '51292', '51295', '51296', 'b0te0162.tx51290']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  }  
-
-  if (e.value === '51363') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['1.', '5108', '5109', '51364', '51365', '51366', '51367', '51368', '51369', '51370', '51371', '51372', '51373', '51374', '51375', '51376', '51377', '51378', '51379', '51380', '51381', '51382', '51383', '51384', '51385', '51386', '51387', '51388', '51389', '51390', '51391', '51392', '51393', '51394', '51395', '51396', '51397', '51398', '51399', '51400', '51401', '51402', '51403', '51404', '51405', '51406', '51407']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  } 
-
-  if (e.value === '51411') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['51410', '51416', '51417', '51420', '51421', '51422', '51424', '51427', '51429', '51432', '51435', '51439', '51442', '51443', '51447', '51449', '51452', '51453']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  } 
-
-  if (e.value === '51717') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['51718', '51720', '51720Q', '51721', '51726', '51727', '51728', '51730', '51731', '51734', '51737', '51740', '51741', '51746', '51747', '51748', '51751', '51754', '51755', '51759', '51762', '51763', '51763Q', '51767', '51767Q', '51768', '52295']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  } 
-
-  if (e.value === '51782') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['41819', '51783', '51784', '51786', '51788', '51791', '51793', '51795', '51797', '51798', '51799', '51801', '51802', '51803', '51806', '51807', '51808', '51810_51811_51812Q', '51814', '51815', '51817', '51818', '51819', '51819Q', '51821', '51822']
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  } 
-
-  if (e.value === '51878') {
-    document.getElementById("inner").innerHTML = "" 
-    story_array = ['51879', '51880', '51883', '51885', '51886', '51887', '51890', '51892', '51895', '51895Q', '51897', '51900', '51901', '51903', '51905', '51906', '51908', '51909', '51910', '51912', '51913', '51915', '51915Q', '51916', '51916Q', '51917', '51917Q', '52258', '52259'] 
-    for (var element in story_array) {
-      var story = "?story=" + story_array[element]
-      var tablename = "&tablename=" + e.value+"_keywords"
-      prelim_function("fetchData.php" +story+tablename, element)
-    }
-  }   
 }
 
 
